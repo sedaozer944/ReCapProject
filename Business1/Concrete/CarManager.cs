@@ -1,5 +1,5 @@
 ﻿using Business1.Abstract;
-using DataAccess1.Abstract.ICarDal;
+using DataAccess1.Abstract;
 using Entities1.Concrete;
 using System;
 using System.Collections.Generic;
@@ -14,9 +14,10 @@ namespace Business1.Concrete
         {
             _iCarDal = iCarDal;
         }
-        List<Car> GetAll()
+
+        public List<Car> GetAll()
         {
-            return _iCarDal.GetAll();
+                return _iCarDal.GetAll();
         }
     }
 }
