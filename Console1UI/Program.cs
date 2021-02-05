@@ -1,19 +1,17 @@
-﻿using Business1.Concrete;
-using DataAccess1.Concrete.InMemory;
-using System;
+﻿using System;
+using Entities1;
+using DataAccess;
+using Business1;
+using Business1.Concrete;
+using DataAccess.Abstract;
 
 namespace Console1UI
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
-            CarManager carManager = new CarManager(new InMemoryCarDal());
-
-            foreach (var car in carManager.GetAll())
-            {
-                Console.WriteLine(car.BrandId);
-            }
+            
         }
     }
 }
