@@ -26,8 +26,6 @@ namespace Business1.Concrete
             _iCarDal.Delete(car);
         }
 
-=======
->>>>>>> a90801a741536ceac8c538b836c04c1336197318
         public List<Car> GetAll()
         {
                 return _iCarDal.GetAll();

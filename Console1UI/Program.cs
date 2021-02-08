@@ -4,6 +4,8 @@ using DataAccess;
 using Business1;
 using Business1.Concrete;
 using DataAccess.Abstract;
+using Entities1.Concrete;
+using DataAccess.Concrete.InMemory;
 
 namespace Console1UI
 {
@@ -12,6 +14,7 @@ namespace Console1UI
         static void Main(string[] args)
         {
             
+           
         }
     }
 }
