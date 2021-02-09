@@ -3,7 +3,9 @@ using DataAccess1.Abstract;
 using Entities1.Concrete;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Business1.Concrete
 {
@@ -15,34 +17,9 @@ namespace Business1.Concrete
             _brandDal = brandDal;
         }
 
-        public void Add(Brand brand)
+        public List<Brand> GetBrands()
         {
-            _brandDal.Add(brand);
-        }
-
-        public void Delete(Brand brand)
-        {
-            _brandDal.Delete(brand);
-        }
-
-        public List<Brand> GetAll()
-        {
-            return _brandDal.GetAll();
-        }
-
-        public List<Brand> GetBrandsByBrandName()
-        {
-            return _brandDal.GetAll(b=>b.BrandName.Length >= 2);
-        }
-
-        public List<Brand> GetByBrandId(int id)
-        {
-            return _brandDal.GetAll(b => b.BrandId == id);
-        }
-
-        public void Update(Brand brand)
-        {
-            _brandDal.Update(brand);
+           return  _brandDal.GetAll();
         }
     }
 }

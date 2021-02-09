@@ -1,6 +1,7 @@
 ﻿using Business1.Abstract;
-using DataAccess1.Abstract;
+using DataAccess.Abstract;
 using Entities1.Concrete;
+using Entities1.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -12,9 +13,8 @@ namespace Business1.Concrete
         ICarDal _iCarDal;
         public CarManager(ICarDal iCarDal)
         {
-            _iCarDal = iCarDal;
+             _iCarDal = iCarDal;
         }
-
 
         public void Add(Car car)
         {
@@ -28,32 +28,22 @@ namespace Business1.Concrete
 
         public List<Car> GetAll()
         {
-                return _iCarDal.GetAll();
+            return _iCarDal.GetAll();
         }
 
-        public List<Car> GetById(int id)
+        public List<CarDetailDto> GetCarDetailDto()
         {
-            return _iCarDal.GetAll(c => c.Id == id);
+            return _iCarDal.GetCarDetailsDto();
         }
 
-        public List<Car> GetCarsByBrandId(int id)
+        public List<CarDetailDto> GetCarsByBrandId(int id)
         {
-            return _iCarDal.GetAll(p => p.BrandId == id);
+            return _iCarDal.GetCarDetailsDto(b=>b.BrandId == id);
         }
 
-        public List<Car> GetCarsByCarName()
+        public List<CarDetailDto> GetCarsByColorId(int id)
         {
-            return _iCarDal.GetAll(p => p.CarName.Length >= 2);
-        }
-
-        public List<Car> GetCarsByColorId(int id)
-        {
-            return _iCarDal.GetAll(p => p.ColorId == id);
-        }
-
-        public List<Car> GetCarsByDailyPrice()
-        {
-            return _iCarDal.GetAll(p => p.DailyPrice > 0);
+            return _iCarDal.GetCarDetailsDto(c=>c.ColorId == id);
         }
 
         public void Update(Car car)

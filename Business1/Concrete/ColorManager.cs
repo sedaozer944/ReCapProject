@@ -3,7 +3,9 @@ using DataAccess1.Abstract;
 using Entities1.Concrete;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Business1.Concrete
 {
@@ -15,34 +17,9 @@ namespace Business1.Concrete
             _colorDal = colorDal;
         }
 
-        public void Add(Color color)
-        {
-            _colorDal.Add(color);
-        }
-
-        public void Delete(Color color)
-        {
-            _colorDal.Delete(color);
-        }
-
-        public List<Color> GetAll()
+        public List<Color> GetColors()
         {
             return _colorDal.GetAll();
-        }
-
-        public List<Color> GetByColorId(int id)
-        {
-            return _colorDal.GetAll(c=>c.ColorId == id);
-        }
-
-        public List<Color> GetColorsByColorName()
-        {
-            return _colorDal.GetAll(c=>c.ColorName.Length >= 2);
-        }
-
-        public void Update(Color color)
-        {
-            _colorDal.Update(color);
         }
     }
 }
