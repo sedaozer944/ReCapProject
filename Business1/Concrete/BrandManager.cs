@@ -1,5 +1,6 @@
 ﻿using Business1.Abstract;
-using DataAccess1.Abstract;
+using Core.Utilities.Results;
+using DataAccess.Abstract;
 using Entities1.Concrete;
 using System;
 using System.Collections.Generic;
@@ -17,9 +18,9 @@ namespace Business1.Concrete
             _brandDal = brandDal;
         }
 
-        public List<Brand> GetBrands()
+        public IDataResult<List<Brand>> GetBrands()
         {
-           return  _brandDal.GetAll();
+           return  new SuccessDataResult<List<Brand>>(_brandDal.GetAll());
         }
     }
 }

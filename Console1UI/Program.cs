@@ -17,51 +17,26 @@ namespace Console1UI
     {
         static void Main(string[] args)
         {
-            ICarService _carService = new CarManager(new EfCarDal());
-            //GetAll();
-            //Add();
-            //GetCarsByBrandId();
-            //GetCarsByColorId();
+            
+            ICarService _carManager = new CarManager(new EfCarDal());
 
-        static void Add()
-        {
+            var result = _carManager.GetCarDetailDto();
+
+            if (result.Success == true)
+            {
+                foreach (var car in _carManager.GetCarDetailDto().Data)
+                 {
+                    Console.WriteLine(car.Name + "/" + car.BrandName);
+                 }
+            }
+            else
+            {
+                Console.WriteLine(result.Message);
+            }
+
           
-                Car car = new Car
-                {
-                    BrandId = 7,
-                    ColorId = 9,
-                    DailyPrice = 0,
-                    Description = "Yeni Araç",
-                    ModelYear = 2015,
-                    CarName = "BMV"
-                };
-                _carService.Add(car); 
+            
         }
-        static void GetCarsByBrandId()
-        {
-            List<CarDetailDto> cars = _carService.GetCarsByBrandId(4);
-            foreach (var car in cars)
-            {
-                Console.WriteLine(String.Format($"Id : {car.Id}, Name : {car.Name}, BrandId : {car.ColorId}"));
-            }
-        }
-        static void GetCarsByColorId()
-        {
-            List<CarDetailDto> cars = _carService.GetCarsByColorId(8);
-            foreach (var car in cars)
-            {
-                Console.WriteLine(String.Format($"Id : {car.Id}, Name : {car.Name}, ColorId : {car.ColorId}"));
-
-            }
-        }
-        static void GetAll()
-        {
-            foreach (Car car in _carService.GetAll())
-            {
-                Console.WriteLine(String.Format($"Id : {car.Id}, Name : {car.CarName}"));
-
-            }
-
-        }
+       
     }
 }
