@@ -10,6 +10,9 @@ namespace Business1.Abstract
 {
     public interface IColorService
     {
+        IResult Add(User user);
+        IResult Delete(User user);
+        IResult Update(User user);
         IDataResult<List<Color>> GetColors();
     }
 }

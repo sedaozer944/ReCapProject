@@ -18,9 +18,24 @@ namespace Business1.Concrete
             _colorDal = colorDal;
         }
 
+        public IResult Add(User user)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IResult Delete(User user)
+        {
+            throw new NotImplementedException();
+        }
+
         public IDataResult<List<Color>> GetColors()
         {
             return new SuccessDataResult<List<Color>>(_colorDal.GetAll());
+        }
+
+        public IResult Update(User user)
+        {
+            throw new NotImplementedException();
         }
     }
 }

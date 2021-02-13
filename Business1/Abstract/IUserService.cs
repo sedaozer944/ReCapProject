@@ -2,18 +2,17 @@
 using Entities1.Concrete;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-
 
 namespace Business1.Abstract
 {
-    public interface IBrandService
+    public interface IUserService
     {
         IResult Add(User user);
         IResult Delete(User user);
         IResult Update(User user);
-        IDataResult<List<Brand>> GetBrands();
+        IDataResult<List<User>> GetAll();
+        IDataResult<List<User>> GetById(int id);
+        IDataResult<List<User>> GetByName(string firstname, string lastname);
     }
 }
