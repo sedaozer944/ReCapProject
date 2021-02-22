@@ -1,4 +1,6 @@
 ﻿using Business1.Abstract;
+using Business1.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities1.Concrete;
@@ -18,6 +20,7 @@ namespace Business1.Concrete
             _colorDal = colorDal;
         }
 
+        [ValidationAspect(typeof(ColorValidator))]
         public IResult Add(User user)
         {
             throw new NotImplementedException();
